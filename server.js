@@ -8,11 +8,11 @@ app.use(express.json());
 
 // MySQL connection
 const db = mysql.createConnection({
-  host: "gateway01.ap-southeast-1.prod.aws.tidbcloud.com", 
-  port:4000,  // or your cloud DB host
-  user: "3Ls3a3FkGUzqFUE.root",        // your MySQL username
-  password: " ",// your MySQL password
-  database: "testdb"   // your database name
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+  port: process.env.DB_PORT
 });
 
 // Simple API route
